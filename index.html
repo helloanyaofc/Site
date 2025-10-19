@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>LORD OF THE DEMONS — Chat / Fórum / Formulários</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">LORD OF THE DEMONS</div>
+  <div class="top-actions">
+    <div id="status" style="color:var(--muted);font-size:14px">Visitante</div>
+    <button id="btn-login" class="btn">Entrar Admin</button>
+    <button id="btn-export" class="ghost hidden">Exportar JSON</button>
+    <button id="btn-import" class="ghost hidden">Importar JSON</button>
+  </div>
+</header>
+
+<main class="container">
+  <div class="layout">
+    <div>
+      <nav class="nav">
+        <button data-page="news" class="active">Notícias</button>
+        <button data-page="forum-scripts">Fórum — Scripts</button>
+        <button data-page="forum-executores">Fórum — Executores</button>
+        <button data-page="forms">Formulários</button>
+      </nav>
+
+      <!-- Notícias -->
+      <section id="page-news" class="card page active">
+        <h3>Notícias (Chat) — Apenas admins podem enviar</h3>
+        <div class="chat-window">
+          <div id="news-messages" class="chat-messages" aria-live="polite"></div>
+          <div class="chat-input">
+            <textarea id="news-input" placeholder="Escreva uma notícia..." maxlength="1000" disabled></textarea>
+            <button id="btn-send" class="btn small" disabled>Enviar</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fórum Scripts -->
+      <section id="page-forum-scripts" class="card page">
+        <h3>Fórum — Scripts</h3>
+        <div id="threads-scripts" class="threads" style="margin-top:12px"></div>
+        <div style="margin-top:12px"><button id="btn-new-thread-scripts" class="btn small" disabled>Novo Tópico (admin)</button></div>
+      </section>
+
+      <!-- Fórum Executores -->
+      <section id="page-forum-executores" class="card page">
+        <h3>Fórum — Executores</h3>
+        <div id="threads-executores" class="threads" style="margin-top:12px"></div>
+        <div style="margin-top:12px"><button id="btn-new-thread-execs" class="btn small" disabled>Novo Tópico (admin)</button></div>
+      </section>
+
+      <!-- Formulários -->
+      <section id="page-forms" class="card page">
+        <h3>Formulários</h3>
+        <div id="forms-list" class="forms-list" style="margin-top:12px"></div>
+        <div style="margin-top:12px"><button id="btn-add-form" class="btn small hidden">Adicionar Formulário (admin)</button></div>
+      </section>
+    </div>
+
+    <!-- Painel Lateral -->
+    <aside class="card">
+      <h4 style="margin-top:0">Painel</h4>
+      <div id="admin-panel-guest"><div style="color:var(--muted)">Entre como admin para postar, editar ou excluir.</div></div>
+
+      <div id="admin-panel" class="hidden">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <strong>Você está logado como Admin</strong>
+          <div class="center" style="gap:8px;margin-top:8px">
+            <button id="btn-clear-all" class="ghost small">Limpar Tudo</button>
+            <button id="btn-logout" class="ghost small">Sair</button>
+          </div>
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03)"/>
+          <ul style="padding-left:18px;color:var(--muted);margin:6px 0">
+            <li>Somente Admin pode importar/exportar e criar/editar/excluir.</li>
+            <li>Edições são salvas automaticamente no navegador.</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="footer">© <span id="year"></span> LORD OF THE DEMONS</div>
+</main>
+
+<!-- Modal container -->
+<div id="modal-root" style="display:none;position:fixed;left:0;top:0;right:0;bottom:0;align-items:center;justify-content:center;z-index:9999"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
